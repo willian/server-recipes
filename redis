@@ -6,7 +6,7 @@ APP_NAME="redis"
 URL="http://redis.googlecode.com/files/redis-2.2.6.tar.gz"
 PREFIX="$INSTALL_DIR/$APP_NAME/$VERSION"
 CURRENT="$INSTALL_DIR/$APP_NAME/current"
-TGZ="$INSTALL_DIR/src/$APP_NAME-$VERSION.tar.gz"
+TGZ="$INSTALL_DIR/src/$(basename $URL)"
 COMMAND=$1
 
 if [ $UID != 0 ]; then

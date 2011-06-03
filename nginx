@@ -6,7 +6,7 @@ APP_NAME="nginx"
 URL="http://nginx.org/download/nginx-$VERSION.tar.gz"
 PREFIX="$INSTALL_DIR/$APP_NAME/$VERSION"
 CURRENT="$INSTALL_DIR/$APP_NAME/current"
-TGZ="$INSTALL_DIR/src/$APP_NAME-$VERSION.tar.gz"
+TGZ="$INSTALL_DIR/src/$(basename $URL)"
 COMMAND=$1
 
 if [ $UID != 0 ]; then
@@ -23,6 +23,8 @@ case "$COMMAND" in
   install)
     mkdir -p /opt/local/src
     cd /opt/local/src
+
+    apt-get install libpcre3-dev libssl-dev
 
     [ ! -f "$TGZ" ] && wget $URL
     tar xvf $TGZ
@@ -89,4 +91,3 @@ case "$COMMAND" in
 esac
 
 :
-
