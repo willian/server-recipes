@@ -3,7 +3,7 @@
 INSTALL_DIR="/opt/local"
 VERSION=$2
 APP_NAME="ruby"
-URL="http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p180.tar.bz2"
+URL="http://ftp.ruby-lang.org/pub/ruby/1.9/$VERSION.tar.bz2"
 PREFIX="$INSTALL_DIR/$APP_NAME/$VERSION"
 CURRENT="$INSTALL_DIR/$APP_NAME/current"
 TGZ="$INSTALL_DIR/src/$(basename $URL)"

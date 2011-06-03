@@ -3,7 +3,7 @@
 INSTALL_DIR="/opt/local"
 VERSION=$2
 APP_NAME="redis"
-URL="http://redis.googlecode.com/files/redis-2.2.6.tar.gz"
+URL="http://redis.googlecode.com/files/redis-$VERSION.tar.gz"
 PREFIX="$INSTALL_DIR/$APP_NAME/$VERSION"
 CURRENT="$INSTALL_DIR/$APP_NAME/current"
 TGZ="$INSTALL_DIR/src/$(basename $URL)"
