@@ -38,7 +38,7 @@ case "$COMMAND" in
       --lock-path=/var/lock/nginx.lock --http-log-path=/var/log/nginx/access.log \
       --http-client-body-temp-path=/var/lib/nginx/body \
       --http-proxy-temp-path=/var/lib/nginx/proxy \
-      --http-fasptcgi-temp-path=/var/lib/nginx/fastcgi --with-debug --with-ipv6
+      --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --with-debug --with-ipv6
 
     mkdir -p /var/lib/nginx
     mkdir -p /var/lib/nginx/body
