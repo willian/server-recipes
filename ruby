@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+SYSTEM_DIR="/usr/local"
 INSTALL_DIR="/opt/local"
 VERSION=$2
 APP_NAME="ruby"
@@ -48,12 +49,12 @@ case "$COMMAND" in
     for dir in bin sbin
     do
       [ ! -d "$CURRENT/$dir" ] && continue
-      mkdir -p "$INSTALL_DIR/$dir"
+      mkdir -p "$SYSTEM_DIR/$dir"
 
       for file in `ls $CURRENT/$dir`
       do
         bin=$(basename $file)
-        ln -s "$CURRENT/$dir/$bin" "$INSTALL_DIR/$dir/$bin"
+        ln -s "$CURRENT/$dir/$bin" "$SYSTEM_DIR/$dir/$bin"
       done
     done
   ;;
@@ -70,7 +71,7 @@ case "$COMMAND" in
       for file in `ls $CURRENT/$dir`
       do
         bin=$(basename $file)
-        [ -L "$INSTALL_DIR/$dir/$bin" ] && rm "$INSTALL_DIR/$dir/$bin"
+        [ -L "$SYSTEM_DIR/$dir/$bin" ] && rm "$SYSTEM_DIR/$dir/$bin"
       done
     done
 
