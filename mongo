@@ -46,7 +46,12 @@ case "$COMMAND" in
     cd /opt/local/mongo/config
     wget -O mongodb https://raw.github.com/willian/server-recipes/master/mongo.conf
 
-    adduser --system --no-create-home --disabled-login --disabled-password --group mongodb
+    /bin/egrep  -i "^mongod" /etc/passwd
+    if [ $? -eq 0 ]; then
+      echo "User $USERID exists in /etc/passwd"
+    else
+      adduser --system --no-create-home --disabled-login --disabled-password --group mongodb
+    fi
 
     mkdir -p /opt/local/mongo/db
     chown mongodb:mongodb -R /opt/local/mongo/db
