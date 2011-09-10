@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mongod --config /opt/local/mongo/config/mongodb \
+## --upgrade \ ##runs a database upgrade option if needed \

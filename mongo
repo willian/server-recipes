@@ -35,6 +35,23 @@ case "$COMMAND" in
     do
       cp "bin/$file" "$PREFIX/bin/$file"
     done
+
+    mkdir -p /opt/local/bin
+    cd /opt/local/bin
+    wget https://raw.github.com/willian/server-recipes/master/mongodb-start
+    wget https://raw.github.com/willian/server-recipes/master/mongodb-stop
+    chmod +x mongodb-st*
+
+    mkdir -p /opt/local/mongo/config
+    cd /opt/local/mongo/config
+    wget -O mongodb https://raw.github.com/willian/server-recipes/master/mongo.conf
+
+    adduser --system --no-create-home --disabled-login --disabled-password --group mongodb
+
+    mkdir -p /opt/local/mongo/db
+    chown mongodb:mongodb -R /opt/local/mongo/db
+
+    mkdir -p /var/log/mongodb
   ;;
 
   activate)
